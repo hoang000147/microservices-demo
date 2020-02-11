@@ -16,6 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: checkoutservice
+  namespace: microservice-test
 spec:
   selector:
     matchLabels:
@@ -27,7 +28,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: checkoutservice
+          image: hoang000147/microservices-demo-checkoutservice:1.0
           ports:
           - containerPort: 5050
           readinessProbe:
@@ -65,6 +66,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: checkoutservice
+  namespace: microservice-test
 spec:
   type: ClusterIP
   selector:

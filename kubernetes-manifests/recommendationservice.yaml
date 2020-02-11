@@ -16,6 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: recommendationservice
+  namespace: microservice-test
 spec:
   selector:
     matchLabels:
@@ -28,7 +29,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: recommendationservice
+        image: hoang000147/microservices-demo-recommendationservice:1.0
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -58,6 +59,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: recommendationservice
+  namespace: microservice-test
 spec:
   type: ClusterIP
   selector:

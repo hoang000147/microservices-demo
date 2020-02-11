@@ -21,7 +21,7 @@ SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 log() { echo "$1" >&2; }
 
-TAG="${TAG:?git}"
+TAG="${TAG:? git}"
 REPO_PREFIX="${REPO_PREFIX:?hoang000147/microservices-demo}"
 
 while IFS= read -d $'\0' -r dir; do

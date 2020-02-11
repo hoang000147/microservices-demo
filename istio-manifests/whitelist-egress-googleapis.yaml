@@ -16,6 +16,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
   name: whitelist-egress-googleapis
+  namespace: microservice-test
 spec:
   hosts:
   - "accounts.google.com" # Used to get token
@@ -32,11 +33,12 @@ apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
   name: whitelist-egress-google-metadata
+  namespace: microservice-test
 spec:
   hosts:
   - metadata.google.internal
   addresses:
-  - 169.254.169.254 # GCE metadata server
+  - 112.137.141.18 
   ports:
   - number: 80
     name: http
