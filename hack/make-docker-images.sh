@@ -16,13 +16,13 @@
 
 # Builds and pushes docker image for each demo microservice.
 
-set -eu pipefail
+set -euo pipefail
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 log() { echo "$1" >&2; }
 
-TAG="${TAG:?TAG env variable must be specified}"
-REPO_PREFIX="$hoang000147"
+TAG="${TAG:?git}"
+REPO_PREFIX="${REPO_PREFIX:?hoang000147/microservices-demo}"
 
 while IFS= read -d $'\0' -r dir; do
     # build image
